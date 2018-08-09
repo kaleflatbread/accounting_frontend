@@ -8,6 +8,7 @@ import 'mdbreact/dist/css/mdb.css';
 import { Route, Switch, withRouter } from "react-router-dom"
 import UploadCSV from './uploadCSV'
 import SubmitExpenses from './submitExpenses'
+import SideNavPage from './sidebar.js';
 
 // import { connect } from 'react-redux';
 
@@ -16,6 +17,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavbarFeatures />
+        <SideNavPage />
         <Route exact path="/" />
         <Switch>
           <Route path="/inventory/new" render={(renderProps) => <UploadCSV history={renderProps.history}/>}/>
