@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import NavbarFeatures from './navbar.js';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import { Route, Switch, withRouter } from "react-router-dom"
-import UploadCSV from './uploadCSV'
-import SubmitExpenses from './submitExpenses'
-import SideNavPage from './sidebar.js';
-
-// import { connect } from 'react-redux';
+import UploadCSV from './components/uploadCSV'
+import SubmitExpenses from './components/submitExpenses'
+import SideNavPage from './components/sidebar.js';
+import { connect } from 'react-redux';
+import NavbarFeatures from './components/navbar.js';
+import Home from './components/Home.js';
 
 class App extends Component {
   render() {
@@ -18,9 +17,9 @@ class App extends Component {
       <div className="App">
         <NavbarFeatures />
         <SideNavPage />
-        <Route exact path="/" />
+        <Route exact path="/" render={() => <Home/>}/>
         <Switch>
-          <Route path="/inventory/new" render={(renderProps) => <UploadCSV history={renderProps.history}/>}/>
+          <Route path="/inventory/new" render={() => <UploadCSV/>}/>
           <Route path="/expense/new" render={() => <SubmitExpenses/>}/>
         </Switch>
       </div>

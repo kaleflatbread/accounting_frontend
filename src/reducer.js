@@ -1,9 +1,8 @@
-import {ADD_FRIEND} from './types';
-
 const initialState = {
   count: 0,
   friends: 0,
-  friendArray: [1, 2, 3, 4]
+  friendArray: [1, 2, 3, 4],
+  statement: ""
 }
 
 export default function reducer(state = initialState, action) {
@@ -16,8 +15,6 @@ export default function reducer(state = initialState, action) {
       return { ...state, count: action.payload.count }
     case 'INCREMENT_FRIENDS':
       return { ...state, friends: state.friends + 1 }
-    case ADD_FRIEND:
-      return { ...state, friendArray: [...state.friendArray, action.payload] }
     default:
       return state;
   }
