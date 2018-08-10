@@ -1,38 +1,17 @@
 import React from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink} from 'mdbreact';
 
-
-
 class NavbarFeatures extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // collapse: false,
       isWideEnough: false,
-      // dropdownOpen: false
     };
-  // this.onClick = this.onClick.bind(this);
-  // this.toggle = this.toggle.bind(this);
   }
 
-  // onClick(){
-  //   this.setState({
-  //     collapse: !this.state.collapse,
-  //   });
-  // }
-  //
-  // toggle() {
-  //   this.setState({
-  //     dropdownOpen: !this.state.dropdownOpen
-  //   });
-  // }
-
-
-
   render() {
-    // <NavLink to="/inventory/new">Upload CSV</NavLink>
     return (
-        <Navbar color="pink darken-2" dark expand="md" scrolling>
+        <Navbar color="rgba-teal-light" dark expand="md" scrolling>
           <NavbarBrand href="/">
             <strong>Quickbooks 2.0</strong>
           </NavbarBrand>

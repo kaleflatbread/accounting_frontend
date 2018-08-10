@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
+
 import Divider from '@material-ui/core/Divider';
 
 
 const styles = {
   list: {
-    width: 250,
+    width: 175,
   },
   fullList: {
     width: 'auto',
@@ -18,10 +18,8 @@ const styles = {
 
 class TemporaryDrawer extends React.Component {
   state = {
-    top: false,
     left: false,
-    bottom: false,
-    right: false,
+    statement: ""
   };
 
   toggleDrawer = (side, open) => () => {
@@ -30,24 +28,33 @@ class TemporaryDrawer extends React.Component {
     });
   };
 
+  showStatement = (event) => {
+    const statement = event.target.innerHTML
+    this.setState({
+      statement: statement
+    })
+    // this.props.dispatch({type: 'STATEMENT', statement: statement})
+    console.log(this.state)
+  }
+
   render() {
     const { classes } = this.props;
 
     const sideList = (
-      <div className={classes.list}>
-        <List>Income Statement</List>
+      <div onClick={this.showStatement} className={classes.list}>
+        <Button>Income Statement</Button>
         <Divider />
-        <List>Balance Sheet</List>
+        <Button>Balance Sheet</Button>
         <Divider />
-        <List>Inventory Register</List>
+        <Button>Inventory Register</Button>
         <Divider />
-        <List>Expense Summary</List>
+        <Button>Expense Summary</Button>
       </div>
     );
 
 
     return (
-      <div>
+      <div className="statementsButton">
         <Button onClick={this.toggleDrawer('left', true)}>Statements</Button>
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
