@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "express-fileupload": "^0.4.0",
     "mdbreact": "^4.6.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-dropzone": "^4.3.0",
+    "react-file-reader": "^1.1.4",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0"
