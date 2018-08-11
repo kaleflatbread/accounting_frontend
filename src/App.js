@@ -10,10 +10,27 @@ import SideNavPage from './components/sidebar.js';
 import { connect } from 'react-redux';
 import NavbarFeatures from './components/navbar.js';
 import Home from './components/Home.js';
+import Login from './components/LoginForm.js';
 
 class App extends Component {
+  constructor(props) {
+  		super(props);
+
+  		this.state = {
+  			userId: null,
+  			email: null,
+  		}
+  	}
 
 
+
+
+  setUser = (userId, email) => {
+    this.setState({
+      userId,
+      email,
+    })
+  }
 
   render() {
     return (
@@ -24,6 +41,7 @@ class App extends Component {
         <Switch>
           <Route path="/inventory/new" render={() => <UploadCSV/>}/>
           <Route path="/expense/new" render={() => <SubmitExpenses/>}/>
+          <Route path="/login" render={(routerProps) => <Login {...routerProps} setUser={this.setUser}/>}/>
         </Switch>
       </div>
     );

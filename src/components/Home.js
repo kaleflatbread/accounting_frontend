@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 
 class Home extends Component {
-  // compnentDidMount() {
+
+
+  // componentDidMount() {
   //   fetch("http://localhost:3001/api/v1/transactions")
   //   .then(res => res.json())
-  //   .then(json => console.log(json));
+  //   .then(console.log)
   // }
 
   render() {

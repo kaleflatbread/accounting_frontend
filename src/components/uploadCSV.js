@@ -18,6 +18,7 @@ class UploadCSV extends Component {
         tmpTransaction[headers[1]] = transaction[1]
         tmpTransaction[headers[2]] = transaction[2]
         upload.push(tmpTransaction)
+        console.log(upload)
       }
     }
   reader.readAsText(files[0]);
@@ -28,9 +29,6 @@ class UploadCSV extends Component {
       <div>
         <br/>
         <br/>
-        <br/>
-        <br/>
-      INVENTORY PAGE!!
       <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>
           <Button>Browse Files</Button>
       </ReactFileReader>
