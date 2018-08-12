@@ -22,9 +22,6 @@ class App extends Component {
   		}
   	}
 
-
-
-
   setUser = (userId, email) => {
     this.setState({
       userId,

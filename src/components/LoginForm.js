@@ -33,7 +33,7 @@ class Login extends Component {
       console.log(json)
       localStorage.setItem('token', json.token);
       this.props.setUser(json.id, json.email)
-      this.props.history.push('/home')
+      this.props.history.push('/')
     })
       // Adapter.postLoginUser(this.state.email, this.state.password)
       // .then(json => {
@@ -44,7 +44,7 @@ class Login extends Component {
   }
 
   render() {
-    
+
     return (
       <div className="login">
         <form onSubmit={this.handleSubmit}>
