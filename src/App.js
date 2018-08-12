@@ -45,4 +45,28 @@ class App extends Component {
   }
 }
 
-export default withRouter(App)
+
+function msp(state){
+  return {
+    heads: state.heads,
+    bodies: state.bodies,
+    feet: state.feet,
+  }
+}
+
+function mdp(dispatch){
+  console.log("MDP", dispatch)
+  return {
+    addHeads: (headsData) => {
+      dispatch({type: "ADD_HEADS", payload: headsData })
+    },
+    addBodies: (bodiesData) => {
+      dispatch({type: "ADD_BODIES", payload: bodiesData })
+    },
+    addFeet: (feetData) => {
+      dispatch({type: "ADD_FEET", payload: feetData })
+    }
+  }
+}
+
+export default withRouter(connect(msp, mdp)(App))
