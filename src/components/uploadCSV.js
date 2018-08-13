@@ -1,6 +1,22 @@
 import React, { Component } from 'react';
 import ReactFileReader from 'react-file-reader';
 import Button from '@material-ui/core/Button';
+import {CSVLink} from 'react-csv';
+
+let headers = [
+  {label: 'Date', key: 'date'},
+  {label: 'Account', key: 'account'},
+  {label: 'Type', key: 'transaction_type'},
+  {label: 'Memo', key: 'memo'},
+  {label: 'SKU', key: 'sku'},
+  {label: 'Quantity Change', key: 'quantity_change'},
+  {label: 'Cost Per Unit', key: 'cost_per_unit'},
+  {label: 'Amount', key: 'amount'},
+];
+
+let data = [
+  {date: '', account: '' , transaction_type: '', memo: '', sku: '', quantity_change: '', cost_per_unit: '', amount: ''},
+];
 
 
 class UploadCSV extends Component {
@@ -24,9 +40,15 @@ class UploadCSV extends Component {
   reader.readAsText(files[0]);
 }
 
+
   render() {
     return (
       <div>
+        <br/>
+        <CSVLink data={data} headers={headers} filename={"inventory_upload_template.csv"}>
+          <Button>CSV Upload Template</Button>
+        </CSVLink>
+        <br/>
         <br/>
         <br/>
       <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>

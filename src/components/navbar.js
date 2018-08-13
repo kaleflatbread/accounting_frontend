@@ -9,6 +9,11 @@ class NavbarFeatures extends React.Component {
     };
   }
 
+  logout = () => {
+    localStorage.removeItem('token');
+    this.props.logout();
+  }
+
   render() {
     return (
         <Navbar color="rgba-teal-light" dark expand="md" scrolling>
@@ -38,7 +43,7 @@ class NavbarFeatures extends React.Component {
                   <NavLink to="/login">Login</NavLink>
               </NavItem>
               <NavItem>
-                  <NavLink to="/logout">Logout</NavLink>
+                  <NavLink onClick={this.logout} to="/login">Logout</NavLink>
               </NavItem>
             </NavbarNav>
           </Collapse>

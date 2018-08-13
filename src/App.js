@@ -29,10 +29,18 @@ class App extends Component {
     })
   }
 
+  logout = () => {
+    this.setState({
+      userId: null,
+      username: null,
+      recipes: [],
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <NavbarFeatures />
+        <Route path="/" render={(routerProps) => <NavbarFeatures {...routerProps} logout={this.logout}/>}/>
         <SideNavPage />
         <Route exact path="/" render={() => <Home/>}/>
         <Switch>
