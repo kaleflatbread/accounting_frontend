@@ -26,6 +26,7 @@ class TemporaryDrawer extends React.Component {
     this.setState({
       [side]: open,
     });
+    console.log(this.state)
   };
 
   showStatement = (event) => {
@@ -34,7 +35,7 @@ class TemporaryDrawer extends React.Component {
       statement: statement
     })
     // this.props.dispatch({type: 'STATEMENT', statement: statement})
-    console.log(this.state)
+
   }
 
   render() {

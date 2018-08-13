@@ -33,7 +33,6 @@ class App extends Component {
     this.setState({
       userId: null,
       username: null,
-      recipes: [],
     })
   }
 
@@ -63,7 +62,7 @@ function msp(state){
 }
 
 function mdp(dispatch){
-  console.log("MDP", dispatch)
+
   return {
     addHeads: (headsData) => {
       dispatch({type: "ADD_HEADS", payload: headsData })
