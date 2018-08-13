@@ -16,7 +16,7 @@ class NavbarFeatures extends React.Component {
 
   render() {
     return (
-        <Navbar color="blue accent-4" dark expand="md" scrolling>
+        <Navbar className="navbar" dark expand="md" scrolling>
           <NavbarBrand href="/">
             <strong>Quickbooks 2.0</strong>
           </NavbarBrand>
