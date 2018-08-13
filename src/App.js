@@ -6,7 +6,6 @@ import 'mdbreact/dist/css/mdb.css';
 import { Route, Switch, withRouter } from "react-router-dom"
 import UploadCSV from './components/uploadCSV'
 import SubmitExpenses from './components/submitExpenses'
-import SideNavPage from './components/sidebar.js';
 import { connect } from 'react-redux';
 import NavbarFeatures from './components/navbar.js';
 import Home from './components/Home.js';
@@ -40,7 +39,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route path="/" render={(routerProps) => <NavbarFeatures {...routerProps} logout={this.logout}/>}/>
-        <SideNavPage />
+
         <Route exact path="/" render={() => <Home/>}/>
         <Switch>
           <Route path="/inventory/new" render={() => <UploadCSV/>}/>

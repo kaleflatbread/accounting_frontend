@@ -1,20 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Transaction from './Transaction'
+
+const Statement = (props) => {
 
 
-class Statement extends Component {
-  render() {
     return (
-      <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+        <table className="ui celled striped padded table">
+          <tbody>
+            <tr className="tableHead">
+              <th>Date</th>
+              <th>Type</th>
+              <th>Memo</th>
+              <th>SKU</th>
+              <th>Quantity Change</th>
+              <th>Cost Per Unit</th>
+              <th>$ Amount</th>
+            </tr>
+
+            {props.allTransactions.map((transaction) => {
+              return(
+                <Transaction transaction={transaction}/>
+              )
+            })}
+
+          </tbody>
+        </table>
+      )
+    };
 
 
-      RENDER STATEMENTS BASED ON STATE
-      </div>
-    );
-  }
-}
 
 export default Statement;

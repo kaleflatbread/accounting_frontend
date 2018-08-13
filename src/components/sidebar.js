@@ -53,7 +53,6 @@ class TemporaryDrawer extends React.Component {
       </div>
     );
 
-
     return (
       <div className="statementsButton">
         <Button onClick={this.toggleDrawer('left', true)}>Statements</Button>

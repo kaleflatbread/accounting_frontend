@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import SideNavPage from './sidebar.js';
+import Statement from './Statement.js';
 
 
 class Home extends Component {
-
+  state = {
+    transactions: []
+  }
 
   componentDidMount() {
     fetch("http://localhost:3001/api/v1/transactions", {
@@ -13,17 +17,17 @@ class Home extends Component {
       }
     })
     .then(res => res.json())
-    .then(console.log)
+    .then(json => this.setState({
+      transactions: json
+    }))
   }
 
   render() {
     return (
       <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-      HOME!!!!!!!!!
+        {/*<CalendarForm />*/}
+        <SideNavPage />
+        <Statement allTransactions={this.state.transactions}/>
       </div>
     );
   }

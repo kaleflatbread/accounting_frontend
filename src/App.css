@@ -30,3 +30,11 @@
 .statementsButton {
   text-align: left;
 }
+
+.tableHead {
+  background-color: #fff59d;
+}
+
+.rows {
+  font-size: 12px;
+}

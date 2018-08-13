@@ -30,10 +30,14 @@ class Login extends Component {
     })
     .then(res => res.json())
     .then(json => {
-      console.log(json)
-      localStorage.setItem('token', json.token);
-      this.props.setUser(json.id, json.email)
-      this.props.history.push('/')
+      if(json.email){
+        console.log(json)
+        localStorage.setItem('token', json.token);
+        this.props.setUser(json.id, json.email)
+        this.props.history.push('/')
+      }else{
+        
+      }
     })
       // Adapter.postLoginUser(this.state.email, this.state.password)
       // .then(json => {
@@ -47,8 +51,11 @@ class Login extends Component {
 
     return (
       <div className="login">
+        <br/>
+        <br/>
+        <br/>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email"></label>
           <input
             type="text"
             name="email"
@@ -56,7 +63,7 @@ class Login extends Component {
             onChange={this.handleChange}
             value={this.state.email}
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password"></label>
           <input
             type="password"
             name="password"
