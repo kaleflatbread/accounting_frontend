@@ -26,14 +26,14 @@ class TemporaryDrawer extends React.Component {
     this.setState({
       [side]: open,
     });
-    console.log(this.state)
   };
 
   showStatement = (event) => {
     const statement = event.target.innerHTML
     this.setState({
       statement: statement
-    })
+    }, () => console.log(this.state))
+
     // this.props.dispatch({type: 'STATEMENT', statement: statement})
 
   }
