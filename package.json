@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "express-fileupload": "^0.4.0",
     "mdbreact": "^4.6.1",
+    "moment": "^2.22.2",
     "react": "^16.4.2",
     "react-csv": "^1.0.14",
     "react-dom": "^16.4.2",

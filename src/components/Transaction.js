@@ -1,10 +1,13 @@
 import React from 'react'
+var moment = require('moment');
 
 const Transaction = (transaction) => {
-  // debugger
+  let unformatted = transaction.transaction.date
+  let formatted = moment(unformatted).format('l')
+
   return (
     <tr>
-      <td className="rows">{transaction.transaction.date}</td>
+      <td className="rows">{formatted}</td>
       <td className="rows">{transaction.transaction.child_type}</td>
       <td className="rows">{transaction.transaction.memo}</td>
       <td className="rows">{transaction.transaction.sku}</td>

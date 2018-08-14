@@ -16,7 +16,7 @@ let headers = [
 ];
 
 let data = [
-  {date: '', account: '' , transaction_type: '', memo: '', sku: '', quantity_change: '', cost_per_unit: '', amount: '', fin: ''},
+  {date: '', account: '', transaction_type: '', memo: '', sku: '', quantity_change: '', cost_per_unit: '', amount: '', fin: ''},
 ];
 
 
