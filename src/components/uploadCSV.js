@@ -31,14 +31,16 @@ class UploadCSV extends Component {
       for (var i = 1; i < lines.length; i++){
         var transaction = lines[i].split(',');
         var tmpTransaction = {}
-        tmpTransaction[headers[0]] = transaction[0];
-        tmpTransaction[headers[1]] = transaction[1]
-        tmpTransaction[headers[2]] = transaction[2]
-        tmpTransaction[headers[3]] = transaction[3]
-        tmpTransaction[headers[4]] = transaction[4]
-        tmpTransaction[headers[5]] = transaction[5]
-        tmpTransaction[headers[6]] = transaction[6]
-        tmpTransaction[headers[7]] = transaction[7]
+        let splitDate = ("date split", transaction[0].split('/'))
+        let reformattedDate = '20' + splitDate[2] + '/' + splitDate[0] + '/' + splitDate[1]
+        tmpTransaction[headers[0]] = reformattedDate;
+        tmpTransaction[headers[1]] = transaction[1];
+        tmpTransaction[headers[2]] = transaction[2];
+        tmpTransaction[headers[3]] = transaction[3];
+        tmpTransaction[headers[4]] = transaction[4];
+        tmpTransaction[headers[5]] = transaction[5];
+        tmpTransaction[headers[6]] = transaction[6];
+        tmpTransaction[headers[7]] = transaction[7];
         upload.push(tmpTransaction)
         console.log(upload)
       }

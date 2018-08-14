@@ -1,5 +1,5 @@
 import React from 'react'
-var moment = require('moment');
+import moment from 'moment';
 
 const Transaction = (transaction) => {
   let unformatted = transaction.transaction.date
