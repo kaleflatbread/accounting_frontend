@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import NavbarFeatures from './components/navbar.js';
 import Home from './components/Home.js';
 import Login from './components/LoginForm.js';
+import RegistrationForm from './components/RegistrationForm.js';
 
 class App extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class App extends Component {
           <Route path="/inventory/new" render={() => <UploadCSV/>}/>
           <Route path="/expense/new" render={() => <SubmitExpenses/>}/>
           <Route path="/login" render={(routerProps) => <Login {...routerProps} setUser={this.setUser}/>}/>
+          <Route path="/user/new" render={(routerProps) => <RegistrationForm {...routerProps}/>}/>
         </Switch>
       </div>
     );

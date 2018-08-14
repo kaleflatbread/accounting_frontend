@@ -14,6 +14,8 @@ class NavbarFeatures extends React.Component {
     this.props.logout();
   }
 
+
+
   render() {
     return (
         <Navbar className="navbar" dark expand="md" scrolling>
@@ -44,6 +46,9 @@ class NavbarFeatures extends React.Component {
               </NavItem>
               <NavItem>
                   <NavLink onClick={this.logout} to="/login">Logout</NavLink>
+              </NavItem>
+              <NavItem>
+                  <NavLink to="/user/new">Register</NavLink>
               </NavItem>
             </NavbarNav>
           </Collapse>
