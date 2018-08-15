@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import JournalEntryForm from './JournalEntryForm.js';
 
 
 class SubmitExpenses extends Component {
@@ -9,9 +10,7 @@ class SubmitExpenses extends Component {
         <br/>
         <br/>
         <br/>
-
-
-      EXPENSE PAGE!!
+        <JournalEntryForm currentUser={this.props.currentUser}/>
       </div>
     );
   }

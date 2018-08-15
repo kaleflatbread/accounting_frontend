@@ -15,7 +15,6 @@ import RegistrationForm from './components/RegistrationForm.js';
 class App extends Component {
   constructor(props) {
   		super(props);
-
   		this.state = {
   			userId: null,
   			email: null,
@@ -44,7 +43,7 @@ class App extends Component {
         <Route exact path="/" render={() => <Home/>}/>
         <Switch>
           <Route path="/inventory/new" render={() => <UploadCSV/>}/>
-          <Route path="/expense/new" render={() => <SubmitExpenses/>}/>
+          <Route path="/expense/new" render={() => <SubmitExpenses currentUser={this.state.userId}/>}/>
           <Route path="/login" render={(routerProps) => <Login {...routerProps} setUser={this.setUser}/>}/>
           <Route path="/user/new" render={(routerProps) => <RegistrationForm {...routerProps}/>}/>
         </Switch>

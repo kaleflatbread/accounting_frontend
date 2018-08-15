@@ -31,7 +31,7 @@ class Statement extends React.Component {
     }
     getFilteredTransactions = () => {
       let filteredTransactions = this.props.allTransactions.filter((transaction) => {
-        return transaction.date < moment(this.state.endDate._d).format('l') && transaction.date > moment(this.state.startDate._d).format('l')
+        return moment(transaction.date) < moment(this.state.endDate._d) && moment(transaction.date) > moment(this.state.startDate._d)
       })
       this.setState({
         filteredTransactions: filteredTransactions,
@@ -39,7 +39,7 @@ class Statement extends React.Component {
     }
 
   render() {
-    debugger
+    // debugger
     return (
       <div>
       Start Date<DatePicker
