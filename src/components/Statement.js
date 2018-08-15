@@ -11,7 +11,8 @@ class Statement extends React.Component {
       //access dates using this.state.endDate._d and this.state.startDate._d
       this.state = {
         startDate: moment(),
-        endDate: moment()
+        endDate: moment(),
+        filteredTransactions: [],
       };
       this.handleStartChange = this.handleStartChange.bind(this);
       this.handleEndChange = this.handleEndChange.bind(this);
@@ -25,19 +26,30 @@ class Statement extends React.Component {
 
     handleEndChange(date) {
       this.setState({
-        endDate: date
+        endDate: date,
       }, () => {console.log(this.state)});
+    }
+    getFilteredTransactions = () => {
+      let filteredTransactions = this.props.allTransactions.filter((transaction) => {
+        return transaction.date < moment(this.state.endDate._d).format('l') && transaction.date > moment(this.state.startDate._d).format('l')
+      })
+      this.setState({
+        filteredTransactions: filteredTransactions,
+      })
     }
 
   render() {
+    debugger
     return (
       <div>
-        Start Date<DatePicker
-          selected={this.state.startDate}
-          onChange={this.handleStartChange}
-          dateFormat="l"
-          />
+      Start Date<DatePicker
+        className="dateForm"
+        selected={this.state.startDate}
+        onChange={this.handleStartChange}
+        dateFormat="l"
+        />
         End Date<DatePicker
+          className="dateForm"
           selected={this.state.endDate}
           onChange={this.handleEndChange}
           dateFormat="l"
