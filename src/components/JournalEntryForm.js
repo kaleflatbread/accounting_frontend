@@ -7,15 +7,14 @@ class JournalEntryForm extends Component {
     date: "",
     line1Type: "Expense",
     line1Account_id: "",
-    line1Child_type: "Journal Entry",
     line1Memo: "",
     line1Debit: "",
     line1Credit: "",
     line2Type: "Expense",
     line2Account_id: "",
-    line2Child_type: "Journal Entry",
     line2Memo: "",
-    line2Amount: "",
+    line2Debit: "",
+    line2Credit: "",
     accounts: [],
   }
 
@@ -49,7 +48,7 @@ class JournalEntryForm extends Component {
   }
 
 
-  handleSubmit = (event) => {
+  handleSubmitLine1 = (event) => {
     event.preventDefault();
     fetch("http://localhost:3001/api/v1/transactions", {
       method: 'POST',
@@ -57,7 +56,21 @@ class JournalEntryForm extends Component {
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token'),
       },
-      body: JSON.stringify(this.state)
+      body: JSON.stringify({user_id: 1, date: this.state.date, account_id: this.state.line1Account_id, type: "Expense", child_type: "Journal Entry", memo: this.state.line1Memo, amount: (this.state.line1Debit-this.state.line1Credit)})
+    })
+    .then(res => res.json())
+    .then(console.log)
+    }
+
+  handleSubmitLine2 = (event) => {
+    event.preventDefault();
+    fetch("http://localhost:3001/api/v1/transactions", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token'),
+      },
+      body: JSON.stringify({user_id: 1, date: this.state.date, account_id: this.state.line2Account_id, type: "Expense", child_type: "Journal Entry", memo: this.state.line2Memo, amount: (this.state.line2Debit-this.state.line2Credit)})
     })
     .then(res => res.json())
     .then(console.log)
@@ -69,12 +82,12 @@ class JournalEntryForm extends Component {
     return (
       <div className="journalEntry">
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} >
           <label htmlFor="date"></label>
           <input
             type="text"
             name="date"
-            placeholder="MM/DD/YYYY"
+            placeholder="DD/MM/YYYY"
             onChange={this.handleChange}
             value={this.state.date}
           />
@@ -116,13 +129,18 @@ class JournalEntryForm extends Component {
             onChange={this.handleChange}
             value={this.state.line1Credit}
           />
+        <input type="submit" value="Post" onClick={this.handleSubmitLine1} />
+
+        </form>
         <br/>
+
         <br/>
+        <form onSubmit={this.handleSubmitLine2} >
           <label htmlFor="date"></label>
           <input
             type="text"
             name="date"
-            placeholder="MM/DD/YYYY"
+            placeholder="DD/MM/YYYY"
             onChange={this.handleChange}
             value={this.state.date}
           />
@@ -150,23 +168,21 @@ class JournalEntryForm extends Component {
         <label htmlFor="debit"></label>
           <input
             type="text"
-            name="line2Amount"
+            name="line2Debit"
             placeholder="Debit"
             onChange={this.handleChange}
-            value={this.state.line1Credit}
+            value={this.state.line2Debit}
           />
         <label htmlFor="credit"></label>
           <input
             type="text"
-            name="line2Amount"
+            name="line2Credit"
             placeholder="Credit"
             onChange={this.handleChange}
-            value={this.state.line1Debit}
+            value={this.state.line2Credit}
           />
         <br/>
-        <input type="submit" value="Post" />
-
-
+        <input type="submit" value="Post" onClick={this.handleSubmitLine2} />
         </form>
       </div>
     )
