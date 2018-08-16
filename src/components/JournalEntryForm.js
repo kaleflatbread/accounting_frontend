@@ -44,7 +44,7 @@ class JournalEntryForm extends Component {
   handleSelect = (event, account) => {
     console.log(account)
     this.setState({
-      [event.target.name]: event.target.value.id,
+      [event.target.name]: event.target.value,
     }, () => console.log(this.state))
   }
 
@@ -88,7 +88,7 @@ class JournalEntryForm extends Component {
 
           {this.state.accounts.map((account) => {
             return(
-              <option name="line1Account_id" value={this.state.line1Account_id} id={account.id}>{account.name}</option>
+              <option name="line1Account_id" value={account.id} id={account.id}>{account.name}</option>
             )
           })}
           </select>
@@ -135,7 +135,7 @@ class JournalEntryForm extends Component {
             value={this.state.line2Account}>
             {this.state.accounts.map((account) => {
               return(
-                <option name="line1Account_id" value={this.state.line2Account_id} account={account}>{account.name}</option>
+                <option name="line2Account_id" value={account.id} account={account}>{account.name}</option>
               )
             })}
           </select>
