@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import InventoryRegister from './InventoryRegister';
+
 import { connect } from 'react-redux';
 
 import Divider from '@material-ui/core/Divider';

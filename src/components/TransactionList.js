@@ -69,7 +69,7 @@ class TransactionList extends React.Component {
             </tr>
             {this.props.allTransactions.map((transaction) => {
               return(
-                <Transaction transaction={transaction}/>
+                <Transaction key={transaction.id} transaction={transaction}/>
               )
             })}
           </tbody>
