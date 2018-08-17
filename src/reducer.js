@@ -10,10 +10,6 @@ export default function reducer(state = initialState, action) {
       return { ...state, inventoryTransactions: action.payload.filter((transaction) => {
         return transaction.sku !== null
       })}
-    // case 'SET_COUNT':
-    //   return { ...state, count: action.payload.count }
-    // case 'INCREMENT_FRIENDS':
-    //   return { ...state, friends: state.friends + 1 }
     default:
       return state;
   }

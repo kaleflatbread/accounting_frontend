@@ -47,16 +47,12 @@ class TemporaryDrawer extends React.Component {
 
   showStatement = (event) => {
     const statement = event.target.innerHTML
-    // this.setState({
-    //   statement: statement
-    // })
     this.props.dispatch({type: 'STATEMENT', payload: statement})
     this.props.dispatch({type: 'INVENTORY_TRANSACTIONS', payload: this.state.transactions})
   }
 
   render() {
     const { classes } = this.props;
-    console.log(this.props)
     const sideList = (
       <div onClick={this.showStatement} className={classes.list}>
         <Button>Income Statement</Button>
@@ -97,8 +93,5 @@ function mapStateToProps(state) {
     inventoryTransactions: state.inventoryTransactions
   }
 }
-
-
-
 
 export default connect(mapStateToProps)(withStyles(styles)(TemporaryDrawer));

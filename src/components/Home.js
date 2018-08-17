@@ -25,32 +25,22 @@ class Home extends Component {
   }
 
 
-  // setStatement = (event) => {
-  //   this.setState({
-  //     inventoryTransactions: this.state.transactions.filter((transaction) => {
-  //       return transaction.sku !== null})}
-  //     }
-
-
-
   render() {
-    // debugger
-    // console.log('home render', this.props.statement)
-    // console.log('state', this.state)
     if (this.props.statement === ""){
-    return (
-      <div>
-        <SideNavPage />
-        <TransactionList allTransactions={this.state.transactions}/>
-      </div>
-    )}
-    else if (this.props.statement === "Inventory Register") {
+      return (
+        <div>
+          <SideNavPage />
+          <TransactionList allTransactions={this.state.transactions}/>
+        </div>
+      )
+    }else if (this.props.statement === "Inventory Register") {
       return (
         <div>
           <SideNavPage />
           <InventoryRegister inventoryTransactions={this.props.inventoryTransactions}/>
         </div>
-      )}
+      )
+    }
   }
 }
 

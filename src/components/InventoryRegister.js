@@ -39,7 +39,6 @@ class InventoryRegister extends React.Component {
     }
 
   render() {
-    // debugger
     return (
       <div>
       Start Date<DatePicker
