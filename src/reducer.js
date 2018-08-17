@@ -5,7 +5,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch(action.type) {
     case 'STATEMENT':
-      return { ...state, statement: this.state.statement}
+      return { ...state, statement: action.payload}
     // case 'DECREMENT':
     //   return { ...state, count: state.count - 1 }
     // case 'SET_COUNT':

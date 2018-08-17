@@ -12,6 +12,7 @@ import Home from './components/Home.js';
 import Login from './components/LoginForm.js';
 import RegistrationForm from './components/RegistrationForm.js';
 
+
 class App extends Component {
   constructor(props) {
   		super(props);
@@ -40,6 +41,7 @@ class App extends Component {
       <div className="App">
         <Route path="/" render={(routerProps) => <NavbarFeatures {...routerProps} logout={this.logout}/>}/>
 
+
         <Route exact path="/" render={() => <Home/>}/>
         <Switch>
           <Route path="/inventory/new" render={() => <UploadCSV/>}/>
@@ -55,25 +57,22 @@ class App extends Component {
 
 function msp(state){
   return {
-    heads: state.heads,
-    bodies: state.bodies,
-    feet: state.feet,
+    statement: state.statement,
   }
 }
 
 function mdp(dispatch){
 
   return {
-    addHeads: (headsData) => {
-      dispatch({type: "ADD_HEADS", payload: headsData })
+    statement: (statement) => {
+      dispatch({type: "STATEMENT", payload: statement })
     },
-    addBodies: (bodiesData) => {
-      dispatch({type: "ADD_BODIES", payload: bodiesData })
-    },
-    addFeet: (feetData) => {
-      dispatch({type: "ADD_FEET", payload: feetData })
+    // addBodies: (bodiesData) => {
+    //   dispatch({type: "ADD_BODIES", payload: bodiesData })
+    // },
+    // addFeet: (feetData) => {
+    //   dispatch({type: "ADD_FEET", payload: feetData })
     }
   }
-}
 
 export default withRouter(connect(msp, mdp)(App))

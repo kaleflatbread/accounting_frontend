@@ -5,7 +5,7 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-class Statement extends React.Component {
+class TransactionList extends React.Component {
   constructor (props) {
       super(props)
       //access dates using this.state.endDate._d and this.state.startDate._d
@@ -81,4 +81,4 @@ class Statement extends React.Component {
 
 
 
-export default Statement;
+export default TransactionList;

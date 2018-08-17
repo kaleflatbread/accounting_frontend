@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
+import InventoryRegister from './InventoryRegister';
+import { connect } from 'react-redux';
 
 import Divider from '@material-ui/core/Divider';
 
@@ -30,17 +32,16 @@ class TemporaryDrawer extends React.Component {
 
   showStatement = (event) => {
     const statement = event.target.innerHTML
-    this.setState({
-      statement: statement
-    }, () => console.log(this.state))
+    // this.setState({
+    //   statement: statement
+    // })
 
-    // this.props.dispatch({type: 'STATEMENT', statement: statement})
-
+    this.props.dispatch({type: 'STATEMENT', payload: statement})
   }
 
   render() {
     const { classes } = this.props;
-
+    console.log(this.props)
     const sideList = (
       <div onClick={this.showStatement} className={classes.list}>
         <Button>Income Statement</Button>
@@ -75,4 +76,13 @@ TemporaryDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TemporaryDrawer);
+function mapStateToProps(state) {
+  return {
+    statement: state.statement,
+  }
+}
+
+
+
+
+export default connect(mapStateToProps)(withStyles(styles)(TemporaryDrawer));

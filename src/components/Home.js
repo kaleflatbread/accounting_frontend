@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import SideNavPage from './sidebar.js';
-import Statement from './Statement.js';
-
+import TransactionList from './TransactionList.js';
+import { connect } from 'react-redux';
+import InventoryRegister from './InventoryRegister.js';
 
 class Home extends Component {
   state = {
-    transactions: []
+    transactions: [],
   }
 
   componentDidMount() {
@@ -22,15 +23,46 @@ class Home extends Component {
     }))
   }
 
+  setStatement = (event) => {
+    const statement = event.target.innerHTML
+    this.setState({
+      statement: statement
+    }, () => console.log(this.state))
+  }
+
+  renderStatement = () => {
+    if (this.props.statement === "") {
+      return <TransactionList allTransactions={this.state.transactions}/>
+    } else if (this.props.statement === "Inventory Register") {
+      return <InventoryRegister allTransactions={this.state.transactions}/>
+    }
+  }
+
+
   render() {
+    console.log('home render', this.props.statement)
+    if (this.props.statement === ""){
     return (
       <div>
-        {/*<CalendarForm />*/}
-        <SideNavPage />
-        <Statement allTransactions={this.state.transactions}/>
+        <SideNavPage onClick={this.setStatement}/>
+        <TransactionList allTransactions={this.state.transactions}/>
       </div>
-    );
+    )}
+    else if (this.props.statement === "Inventory Register") {
+      return (
+        <div>
+          <SideNavPage onClick={this.setStatement}/>
+          <InventoryRegister allTransactions={this.state.transactions}/>
+        </div>
+      )}
   }
 }
 
-export default Home;
+function mapStateToProps(state) {
+  return {
+    statement: state.statement,
+  }
+}
+
+
+export default connect(mapStateToProps)(Home);
