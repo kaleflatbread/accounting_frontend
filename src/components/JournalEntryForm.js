@@ -181,7 +181,6 @@ class JournalEntryForm extends Component {
             onChange={this.handleChange}
             value={this.state.line2Credit}
           />
-        <br/>
         <input type="submit" value="Post" onClick={this.handleSubmitLine2} />
         </form>
       </div>
