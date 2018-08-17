@@ -14,6 +14,9 @@ const Transaction = (transaction) => {
       <td className="rows">{transaction.transaction.quantity_change}</td>
       <td className="rows">{transaction.transaction.cost_per_unit}</td>
       <td className="rows">{transaction.transaction.amount}</td>
+      <td className="rows"><button>Edit</button></td>
+      <td className="rows"><button>Delete</button></td>
+
     </tr>
   )
 }
