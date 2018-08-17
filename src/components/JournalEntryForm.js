@@ -78,7 +78,6 @@ class JournalEntryForm extends Component {
 
 
   render() {
-
     return (
       <div className="journalEntry">
 
@@ -91,97 +90,94 @@ class JournalEntryForm extends Component {
             onChange={this.handleChange}
             value={this.state.date}
           />
-        <label htmlFor="Account"></label>
-          <select
-          type="text"
-          name="line1Account_id"
-          placeholder="Account"
-          onChange={this.handleSelect}
-          value={this.state.line1Account}>
-
-          {this.state.accounts.map((account) => {
-            return(
-              <option name="line1Account_id" value={account.id} id={account.id}>{account.name}</option>
-            )
-          })}
-          </select>
-        <label htmlFor="memo"></label>
-          <input
+          <label htmlFor="Account"></label>
+            <select
             type="text"
-            name="line1Memo"
-            placeholder="Memo"
-            onChange={this.handleChange}
-            value={this.state.line1Memo}
-          />
-        <label htmlFor="debit"></label>
-          <input
-            type="text"
-            name="line1Debit"
-            placeholder="Debit"
-            onChange={this.handleChange}
-            value={this.state.line1Debit}
-          />
-        <label htmlFor="credit"></label>
-          <input
-            type="text"
-            name="line1Credit"
-            placeholder="Credit"
-            onChange={this.handleChange}
-            value={this.state.line1Credit}
-          />
-        <input type="submit" value="Post" onClick={this.handleSubmitLine1} />
-
-        </form>
-        <br/>
-
-        <br/>
-        <form onSubmit={this.handleSubmitLine2} >
-          <label htmlFor="date"></label>
-          <input
-            type="text"
-            name="date"
-            placeholder="DD/MM/YYYY"
-            onChange={this.handleChange}
-            value={this.state.date}
-          />
-        <label htmlFor="Account"></label>
-          <select
-            type="text"
-            name="line2Account_id"
+            name="line1Account_id"
             placeholder="Account"
             onChange={this.handleSelect}
-            value={this.state.line2Account}>
+            value={this.state.line1Account}>
+
             {this.state.accounts.map((account) => {
               return(
-                <option name="line2Account_id" value={account.id} account={account}>{account.name}</option>
+                <option name="line1Account_id" value={account.id} id={account.id}>{account.name}</option>
               )
             })}
-          </select>
-        <label htmlFor="memo"></label>
-          <input
-            type="text"
-            name="line2Memo"
-            placeholder="Memo"
-            onChange={this.handleChange}
-            value={this.state.line2Memo}
-          />
-        <label htmlFor="debit"></label>
-          <input
-            type="text"
-            name="line2Debit"
-            placeholder="Debit"
-            onChange={this.handleChange}
-            value={this.state.line2Debit}
-          />
-        <label htmlFor="credit"></label>
-          <input
-            type="text"
-            name="line2Credit"
-            placeholder="Credit"
-            onChange={this.handleChange}
-            value={this.state.line2Credit}
-          />
-        <input type="submit" value="Post" onClick={this.handleSubmitLine2} />
+            </select>
+          <label htmlFor="memo"></label>
+            <input
+              type="text"
+              name="line1Memo"
+              placeholder="Memo"
+              onChange={this.handleChange}
+              value={this.state.line1Memo}
+            />
+          <label htmlFor="debit"></label>
+            <input
+              type="text"
+              name="line1Debit"
+              placeholder="Debit"
+              onChange={this.handleChange}
+              value={this.state.line1Debit}
+            />
+          <label htmlFor="credit"></label>
+            <input
+              type="text"
+              name="line1Credit"
+              placeholder="Credit"
+              onChange={this.handleChange}
+              value={this.state.line1Credit}
+            />
+          <input type="submit" value="Post" onClick={this.handleSubmitLine1} />
+        </form>
+      <br/>
+        <form onSubmit={this.handleSubmitLine2} >
+          <label htmlFor="date"></label>
+            <input
+              type="text"
+              name="date"
+              placeholder="DD/MM/YYYY"
+              onChange={this.handleChange}
+              value={this.state.date}
+            />
+          <label htmlFor="Account"></label>
+            <select
+              type="text"
+              name="line2Account_id"
+              placeholder="Account"
+              onChange={this.handleSelect}
+              value={this.state.line2Account}>
+              {this.state.accounts.map((account) => {
+                return(
+                  <option name="line2Account_id" value={account.id} account={account}>{account.name}</option>
+                )
+              })}
+            </select>
+          <label htmlFor="memo"></label>
+            <input
+              type="text"
+              name="line2Memo"
+              placeholder="Memo"
+              onChange={this.handleChange}
+              value={this.state.line2Memo}
+            />
+          <label htmlFor="debit"></label>
+            <input
+              type="text"
+              name="line2Debit"
+              placeholder="Debit"
+              onChange={this.handleChange}
+              value={this.state.line2Debit}
+            />
+          <label htmlFor="credit"></label>
+            <input
+              type="text"
+              name="line2Credit"
+              placeholder="Credit"
+              onChange={this.handleChange}
+              value={this.state.line2Credit}
+            />
+          <input type="submit" value="Post" onClick={this.handleSubmitLine2} />
         </form>
       </div>
     )
