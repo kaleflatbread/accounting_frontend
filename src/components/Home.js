@@ -7,6 +7,7 @@ import InventoryRegister from './InventoryRegister.js';
 class Home extends Component {
   state = {
     transactions: [],
+    inventoryTransactions: [],
   }
 
   componentDidMount() {
@@ -23,36 +24,31 @@ class Home extends Component {
     }))
   }
 
-  setStatement = (event) => {
-    const statement = event.target.innerHTML
-    this.setState({
-      statement: statement
-    }, () => console.log(this.state))
-  }
 
-  renderStatement = () => {
-    if (this.props.statement === "") {
-      return <TransactionList allTransactions={this.state.transactions}/>
-    } else if (this.props.statement === "Inventory Register") {
-      return <InventoryRegister allTransactions={this.state.transactions}/>
-    }
-  }
+  // setStatement = (event) => {
+  //   this.setState({
+  //     inventoryTransactions: this.state.transactions.filter((transaction) => {
+  //       return transaction.sku !== null})}
+  //     }
+
 
 
   render() {
-    console.log('home render', this.props.statement)
+    // debugger
+    // console.log('home render', this.props.statement)
+    // console.log('state', this.state)
     if (this.props.statement === ""){
     return (
       <div>
-        <SideNavPage onClick={this.setStatement}/>
+        <SideNavPage />
         <TransactionList allTransactions={this.state.transactions}/>
       </div>
     )}
     else if (this.props.statement === "Inventory Register") {
       return (
         <div>
-          <SideNavPage onClick={this.setStatement}/>
-          <InventoryRegister allTransactions={this.state.transactions}/>
+          <SideNavPage />
+          <InventoryRegister inventoryTransactions={this.props.inventoryTransactions}/>
         </div>
       )}
   }
@@ -61,6 +57,7 @@ class Home extends Component {
 function mapStateToProps(state) {
   return {
     statement: state.statement,
+    inventoryTransactions: state.inventoryTransactions
   }
 }
 

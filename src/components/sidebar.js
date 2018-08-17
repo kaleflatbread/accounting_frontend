@@ -21,8 +21,23 @@ const styles = {
 class TemporaryDrawer extends React.Component {
   state = {
     left: false,
-    statement: ""
+    statement: "",
+    transactions: []
   };
+
+  componentDidMount() {
+    fetch("http://localhost:3001/api/v1/transactions", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token'),
+      }
+    })
+    .then(res => res.json())
+    .then(json => this.setState({
+      transactions: json
+    }))
+  }
 
   toggleDrawer = (side, open) => () => {
     this.setState({
@@ -35,8 +50,8 @@ class TemporaryDrawer extends React.Component {
     // this.setState({
     //   statement: statement
     // })
-
     this.props.dispatch({type: 'STATEMENT', payload: statement})
+    this.props.dispatch({type: 'INVENTORY_TRANSACTIONS', payload: this.state.transactions})
   }
 
   render() {
@@ -79,6 +94,7 @@ TemporaryDrawer.propTypes = {
 function mapStateToProps(state) {
   return {
     statement: state.statement,
+    inventoryTransactions: state.inventoryTransactions
   }
 }
 
