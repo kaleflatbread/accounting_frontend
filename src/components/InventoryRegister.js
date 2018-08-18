@@ -13,6 +13,7 @@ class InventoryRegister extends React.Component {
         startDate: moment(),
         endDate: moment(),
         filteredTransactions: [],
+        inventory: []
       };
       this.handleStartChange = this.handleStartChange.bind(this);
       this.handleEndChange = this.handleEndChange.bind(this);
@@ -38,7 +39,19 @@ class InventoryRegister extends React.Component {
       })
     }
 
+  // formatInventory = () => {
+  //   var formattedInventory = {}
+  //   this.props.inventoryTransactions.map((transaction) => {
+  //     formattedInventory[transaction.sku] += 1
+  //   })
+  //   this.setState({
+  //     inventory: formattedInventory
+  //   }, console.log(this.state))
+  // }
+
+
   render() {
+    // debugger
     return (
       <div>
       Start Date<DatePicker
