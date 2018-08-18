@@ -26,7 +26,7 @@ class Home extends Component {
 
 
   render() {
-    if (this.props.statement === ""){
+    if (this.props.statement === "" || this.props.statement === "All Transactions"){
       return (
         <div>
           <SideNavPage />

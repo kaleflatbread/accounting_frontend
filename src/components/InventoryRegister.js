@@ -1,5 +1,5 @@
 import React from 'react';
-import Transaction from './Transaction'
+import StatementTransaction from './statementTransaction'
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -81,7 +81,7 @@ class InventoryRegister extends React.Component {
             </tr>
             {this.props.inventoryTransactions.map((transaction) => {
               return(
-                <Transaction key={transaction.id} transaction={transaction}/>
+                <StatementTransaction key={transaction.id} transaction={transaction}/>
               )
             })}
           </tbody>
