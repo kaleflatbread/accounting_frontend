@@ -49,6 +49,7 @@ class TemporaryDrawer extends React.Component {
     const statement = event.target.innerHTML
     this.props.dispatch({type: 'STATEMENT', payload: statement})
     this.props.dispatch({type: 'INVENTORY_TRANSACTIONS', payload: this.state.transactions})
+    this.props.dispatch({type: 'EXPENSE_TRANSACTIONS', payload: this.state.transactions})
   }
 
   render() {

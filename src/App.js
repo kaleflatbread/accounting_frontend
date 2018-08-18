@@ -5,12 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import { Route, Switch, withRouter } from "react-router-dom"
 import UploadCSV from './components/uploadCSV'
-import SubmitExpenses from './components/submitExpenses'
 import { connect } from 'react-redux';
 import NavbarFeatures from './components/navbar.js';
 import Home from './components/Home.js';
 import Login from './components/LoginForm.js';
 import RegistrationForm from './components/RegistrationForm.js';
+import JournalEntryForm from './components/JournalEntryForm.js';
 
 
 class App extends Component {
@@ -45,7 +45,7 @@ class App extends Component {
         <Route exact path="/" render={() => <Home/>}/>
         <Switch>
           <Route path="/inventory/new" render={() => <UploadCSV/>}/>
-          <Route path="/expense/new" render={() => <SubmitExpenses currentUser={this.state.userId}/>}/>
+          <Route path="/expense/new" render={() => <JournalEntryForm currentUser={this.state.userId}/>}/>
           <Route path="/login" render={(routerProps) => <Login {...routerProps} setUser={this.setUser}/>}/>
           <Route path="/user/new" render={(routerProps) => <RegistrationForm {...routerProps}/>}/>
         </Switch>

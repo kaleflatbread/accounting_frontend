@@ -3,11 +3,13 @@ import SideNavPage from './sidebar.js';
 import TransactionList from './TransactionList.js';
 import { connect } from 'react-redux';
 import InventoryRegister from './InventoryRegister.js';
+import ExpenseSummary from './expenseSummary.js';
 
 class Home extends Component {
   state = {
     transactions: [],
     inventoryTransactions: [],
+    expenseTransactions: []
   }
 
   componentDidMount() {
@@ -40,6 +42,13 @@ class Home extends Component {
           <InventoryRegister inventoryTransactions={this.props.inventoryTransactions}/>
         </div>
       )
+    }else if (this.props.statement === "Expense Summary") {
+      return (
+        <div>
+          <SideNavPage />
+          <ExpenseSummary expenseTransactions={this.props.expenseTransactions}/>
+        </div>
+      )
     }
   }
 }
@@ -47,7 +56,8 @@ class Home extends Component {
 function mapStateToProps(state) {
   return {
     statement: state.statement,
-    inventoryTransactions: state.inventoryTransactions
+    inventoryTransactions: state.inventoryTransactions,
+    expenseTransactions: state.expenseTransactions
   }
 }
 

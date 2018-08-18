@@ -1,6 +1,5 @@
 const initialState = {
   statement: "",
-  inventoryTransactions: [],
 }
 
 export default function reducer(state = initialState, action) {
@@ -13,6 +12,10 @@ export default function reducer(state = initialState, action) {
       })}
     case 'LOGIN':
       return { ...state, userId: action.payload}
+    case 'EXPENSE_TRANSACTIONS':
+      return { ...state, expenseTransactions: action.payload.filter((transaction) => {
+        return transaction.sku === null
+      })}
     default:
       return state;
   }
