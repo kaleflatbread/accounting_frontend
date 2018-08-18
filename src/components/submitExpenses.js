@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import JournalEntryForm from './JournalEntryForm.js';
+import { connect } from 'react-redux';
 
 
 class SubmitExpenses extends Component {
@@ -10,10 +11,10 @@ class SubmitExpenses extends Component {
         <br/>
         <br/>
         <br/>
-        <JournalEntryForm currentUser={this.props.currentUser}/>
+        <JournalEntryForm currentUser={this.props.userId}/>
       </div>
     );
   }
 }
 
-export default SubmitExpenses;
+export default connect()(SubmitExpenses);

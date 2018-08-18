@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-// import Adapter from '../apis/Adapter';
+
+import { connect } from 'react-redux';
 
 class JournalEntryForm extends Component {
   state = {
-    user_id: 1,
+    user_id: this.props.userId,
     date: "",
     line1Type: "Expense",
     line1Account_id: "",
@@ -56,7 +57,7 @@ class JournalEntryForm extends Component {
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token'),
       },
-      body: JSON.stringify({user_id: 1, date: this.state.date, account_id: this.state.line1Account_id, type: "Expense", child_type: "Journal Entry", memo: this.state.line1Memo, amount: (this.state.line1Debit-this.state.line1Credit)})
+      body: JSON.stringify({user_id: this.props.userId, date: this.state.date, account_id: this.state.line1Account_id, type: "Expense", child_type: "Journal Entry", memo: this.state.line1Memo, amount: (this.state.line1Debit-this.state.line1Credit)})
     })
     .then(res => res.json())
     .then(console.log)
@@ -70,7 +71,7 @@ class JournalEntryForm extends Component {
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token'),
       },
-      body: JSON.stringify({user_id: 1, date: this.state.date, account_id: this.state.line2Account_id, type: "Expense", child_type: "Journal Entry", memo: this.state.line2Memo, amount: (this.state.line2Debit-this.state.line2Credit)})
+      body: JSON.stringify({user_id: this.state.user_id, date: this.state.date, account_id: this.state.line2Account_id, type: "Expense", child_type: "Journal Entry", memo: this.state.line2Memo, amount: (this.state.line2Debit-this.state.line2Credit)})
     })
     .then(res => res.json())
     .then(console.log)
@@ -184,4 +185,10 @@ class JournalEntryForm extends Component {
   }
 }
 
-export default JournalEntryForm;
+function mapStateToProps(state) {
+  return {
+    userId: state.userId,
+  }
+}
+
+export default connect(mapStateToProps)(JournalEntryForm);

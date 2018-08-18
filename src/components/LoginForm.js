@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import Adapter from '../apis/Adapter';
+
+import { connect } from 'react-redux';
 
 class Login extends Component {
   state = {
@@ -35,8 +36,9 @@ class Login extends Component {
         localStorage.setItem('token', json.token);
         this.props.setUser(json.id, json.email)
         this.props.history.push('/')
+        this.props.dispatch({type: 'LOGIN', payload: json.id})
       }else{
-        
+
       }
     })
       // Adapter.postLoginUser(this.state.email, this.state.password)
@@ -48,7 +50,7 @@ class Login extends Component {
   }
 
   render() {
-
+    // debugger
     return (
       <div className="login">
         <br/>
@@ -78,4 +80,11 @@ class Login extends Component {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    email: state.email,
+    userId: state.userId,
+  }
+}
+
+export default connect(mapStateToProps)(Login);
