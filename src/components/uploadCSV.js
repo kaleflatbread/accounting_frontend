@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactFileReader from 'react-file-reader';
 import Button from '@material-ui/core/Button';
 import {CSVLink} from 'react-csv';
+import { connect } from 'react-redux';
+
 
 let headers = [
   {label: 'Date', key: 'date'},
@@ -21,6 +23,7 @@ let data = [
 
 
 class UploadCSV extends Component {
+
   handleFiles = files => {
     var reader = new FileReader();
     reader.onload = function(e) {
@@ -44,14 +47,14 @@ class UploadCSV extends Component {
         upload.push(tmpTransaction)
         console.log(upload)
       }
-      // debugger
+
       fetch("http://localhost:3001/api/v1/transactions", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': localStorage.getItem('token'),
         },
-        body: JSON.stringify({type: "Inventory", account_id: 7, child_type: upload[0]["Type"], user_id: 5, memo: upload[0]["Memo"], date: upload[0]["Date"], quantity_change: upload[0]["Quantity Change"], amount: upload[0]["Amount"], cost_per_unit: upload[0]["Cost Per Unit"], sku: upload[0]["SKU"],})
+        body: JSON.stringify({type: "Inventory", account_id: 7, child_type: upload[0]["Type"], user_id: 1, memo: upload[0]["Memo"], date: upload[0]["Date"], quantity_change: upload[0]["Quantity Change"], amount: upload[0]["Amount"], cost_per_unit: upload[0]["Cost Per Unit"], sku: upload[0]["SKU"],})
       })
       .then(res => res.json())
       .then(console.log)
@@ -79,4 +82,10 @@ class UploadCSV extends Component {
   }
 }
 
-export default UploadCSV;
+function mapStateToProps(state) {
+  return {
+    userId: state.userId,
+  }
+}
+
+export default connect(mapStateToProps)(UploadCSV);

@@ -10,33 +10,46 @@ class InventoryRegister extends React.Component {
       super(props)
       //access dates using this.state.endDate._d and this.state.startDate._d
       this.state = {
-        startDate: moment(),
-        endDate: moment(),
-        filteredTransactions: [],
+        startDate: moment('1/1/2018'),
+        endDate: moment('8/31/2018'),
+        filteredTransactions: this.props.inventoryTransactions,
         inventory: []
       };
       this.handleStartChange = this.handleStartChange.bind(this);
       this.handleEndChange = this.handleEndChange.bind(this);
     }
 
+    getStartFilteredTransactions = () => {
+      let filteredTransactions = this.props.inventoryTransactions.filter((transaction) => {
+        return moment(transaction.date) > moment(this.state.startDate._d)
+      })
+      this.setState({
+        filteredTransactions: filteredTransactions,
+      })
+    }
+
+
+    getEndFilteredTransactions = () => {
+      let filteredTransactions = this.props.inventoryTransactions.filter((transaction) => {
+        return moment(transaction.date) < moment(this.state.endDate._d)
+      })
+      this.setState({
+        filteredTransactions: filteredTransactions,
+      })
+    }
+
     handleStartChange(date) {
       this.setState({
         startDate: date,
       }, () => {console.log(this.state)});
+      this.getStartFilteredTransactions()
     }
 
     handleEndChange(date) {
       this.setState({
         endDate: date,
       }, () => {console.log(this.state)});
-    }
-    getFilteredTransactions = () => {
-      let filteredTransactions = this.props.allTransactions.filter((transaction) => {
-        return moment(transaction.date) < moment(this.state.endDate._d) && moment(transaction.date) > moment(this.state.startDate._d)
-      })
-      this.setState({
-        filteredTransactions: filteredTransactions,
-      })
+      this.getEndFilteredTransactions()
     }
 
   // formatInventory = () => {
@@ -54,6 +67,7 @@ class InventoryRegister extends React.Component {
     // debugger
     return (
       <div>
+        <h1> INVENTORY REGISTER </h1>
       Start Date<DatePicker
         className="dateForm"
         selected={this.state.startDate}
@@ -77,7 +91,7 @@ class InventoryRegister extends React.Component {
               <th>Cost Per Unit</th>
               <th>$ Amount</th>
             </tr>
-            {this.props.inventoryTransactions.map((transaction) => {
+            {this.state.filteredTransactions.map((transaction) => {
               return(
                 <StatementTransaction key={transaction.id} transaction={transaction}/>
               )

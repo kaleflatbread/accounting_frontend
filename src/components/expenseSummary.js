@@ -11,9 +11,9 @@ class ExpenseSummary extends Component {
       super(props)
       //access dates using this.state.endDate._d and this.state.startDate._d
       this.state = {
-        startDate: moment(),
-        endDate: moment(),
-        filteredTransactions: [],
+        startDate: moment('1/1/2018'),
+        endDate: moment('8/31/2018'),
+        filteredTransactions: this.props.expenseTransactions,
         inventory: []
       };
       this.handleStartChange = this.handleStartChange.bind(this);
@@ -24,16 +24,29 @@ class ExpenseSummary extends Component {
       this.setState({
         startDate: date,
       }, () => {console.log(this.state)});
+      this.getStartFilteredTransactions()
     }
 
     handleEndChange(date) {
       this.setState({
         endDate: date,
       }, () => {console.log(this.state)});
+      this.getEndFilteredTransactions()
     }
-    getFilteredTransactions = () => {
-      let filteredTransactions = this.props.allTransactions.filter((transaction) => {
-        return moment(transaction.date) < moment(this.state.endDate._d) && moment(transaction.date) > moment(this.state.startDate._d)
+
+    getStartFilteredTransactions = () => {
+      let filteredTransactions = this.props.expenseTransactions.filter((transaction) => {
+        return moment(transaction.date) > moment(this.state.startDate._d)
+      })
+      this.setState({
+        filteredTransactions: filteredTransactions,
+      })
+    }
+
+
+    getEndFilteredTransactions = () => {
+      let filteredTransactions = this.props.expenseTransactions.filter((transaction) => {
+        return moment(transaction.date) < moment(this.state.endDate._d)
       })
       this.setState({
         filteredTransactions: filteredTransactions,
@@ -46,6 +59,7 @@ class ExpenseSummary extends Component {
     // debugger
     return (
       <div>
+        <h1> EXPENSE SUMMARY </h1>
       Start Date<DatePicker
         className="dateForm"
         selected={this.state.startDate}
@@ -69,7 +83,7 @@ class ExpenseSummary extends Component {
               <th>Cost Per Unit</th>
               <th>$ Amount</th>
             </tr>
-            {this.props.expenseTransactions.map((transaction) => {
+            {this.state.filteredTransactions.map((transaction) => {
               return(
                 <StatementTransaction key={transaction.id} transaction={transaction}/>
               )

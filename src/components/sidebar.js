@@ -60,8 +60,8 @@ class TemporaryDrawer extends React.Component {
         <Divider />
         <Button>Income Statement</Button>
         <Divider />
-        <Button>Balance Sheet</Button>
-        <Divider />
+        {/*<Button>Balance Sheet</Button>
+        <Divider />*/}
         <Button>Inventory Register</Button>
         <Divider />
         <Button>Expense Summary</Button>
