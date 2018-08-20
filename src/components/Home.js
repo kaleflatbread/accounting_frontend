@@ -4,6 +4,7 @@ import TransactionList from './TransactionList.js';
 import { connect } from 'react-redux';
 import InventoryRegister from './InventoryRegister.js';
 import ExpenseSummary from './expenseSummary.js';
+import IncomeStatement from './IncomeStatement.js';
 
 class Home extends Component {
   state = {
@@ -47,6 +48,13 @@ class Home extends Component {
         <div>
           <SideNavPage />
           <ExpenseSummary expenseTransactions={this.props.expenseTransactions}/>
+        </div>
+      )
+    }else if (this.props.statement === "Income Statement") {
+      return (
+        <div>
+          <SideNavPage />
+          <IncomeStatement allTransactions={this.state.transactions}/>
         </div>
       )
     }
