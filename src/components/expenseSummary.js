@@ -24,7 +24,7 @@ class ExpenseSummary extends Component {
       this.setState({
         startDate: date,
       }, () => {console.log(this.state)});
-      this.getStartFilteredTransactions()
+      // this.getStartFilteredTransactions()
     }
 
     handleEndChange(date) {
@@ -34,19 +34,19 @@ class ExpenseSummary extends Component {
       this.getEndFilteredTransactions()
     }
 
-    getStartFilteredTransactions = () => {
-      let filteredTransactions = this.props.expenseTransactions.filter((transaction) => {
-        return moment(transaction.date) > moment(this.state.startDate._d)
-      })
-      this.setState({
-        filteredTransactions: filteredTransactions,
-      })
-    }
+    // getStartFilteredTransactions = () => {
+    //   let filteredTransactions = this.props.expenseTransactions.filter((transaction) => {
+    //     return moment(transaction.date) > moment(this.state.startDate._d)
+    //   })
+    //   this.setState({
+    //     filteredTransactions: filteredTransactions,
+    //   })
+    // }
 
 
     getEndFilteredTransactions = () => {
       let filteredTransactions = this.props.expenseTransactions.filter((transaction) => {
-        return moment(transaction.date) < moment(this.state.endDate._d)
+        return moment(transaction.date) < moment(this.state.endDate._d) && moment(transaction.date) > moment(this.state.startDate._d)
       })
       this.setState({
         filteredTransactions: filteredTransactions,
@@ -66,14 +66,14 @@ class ExpenseSummary extends Component {
         onChange={this.handleStartChange}
         dateFormat="l"
         />
-        End Date<DatePicker
-          className="dateForm"
-          selected={this.state.endDate}
-          onChange={this.handleEndChange}
-          dateFormat="l"
-          />
+      End Date<DatePicker
+        className="dateForm"
+        selected={this.state.endDate}
+        onChange={this.handleEndChange}
+        dateFormat="l"
+        />
         <table className="ui celled striped padded table">
-          <tbody>
+          <thead>
             <tr className="tableHead">
               <th>Date</th>
               <th>Type</th>
@@ -83,6 +83,8 @@ class ExpenseSummary extends Component {
               <th>Cost Per Unit</th>
               <th>$ Amount</th>
             </tr>
+          </thead>
+            <tbody>
             {this.state.filteredTransactions.map((transaction) => {
               return(
                 <StatementTransaction key={transaction.id} transaction={transaction}/>

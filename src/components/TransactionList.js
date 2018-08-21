@@ -55,9 +55,9 @@ class TransactionList extends React.Component {
     // debugger
     return (
       <div>
-        <h1> ALL TRANSACTIONS </h1>
-        <table className="ui celled striped padded table">
-          <tbody>
+        <h1 className="statementTitle"> ALL TRANSACTIONS </h1>
+        <table className="table">
+          <thead>
             <tr className="tableHead">
               <th>Date</th>
               <th>Type</th>
@@ -67,6 +67,8 @@ class TransactionList extends React.Component {
               <th>Cost Per Unit</th>
               <th>$ Amount</th>
             </tr>
+          </thead>
+            <tbody>
             {this.props.allTransactions.map((transaction) => {
               return(
                 <Transaction key={transaction.id} transaction={transaction}/>

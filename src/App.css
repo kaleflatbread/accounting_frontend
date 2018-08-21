@@ -31,12 +31,11 @@
   text-align: left;
 }
 
-.tableHead {
-  background: #e3eeff;
-}
+
 
 .rows {
   font-size: 12px;
+
 }
 
 .navbar {
@@ -44,6 +43,46 @@
 }
 
 .dateForm {
-  width: 55%;
 
+  display: inline;
+}
+
+.table {
+  border-color: black;
+}
+
+table
+{
+	width: 1050px;
+	border-collapse: collapse;
+
+}
+
+thead
+{
+  margin: auto;
+	display: block;
+	width: 1050px;
+	overflow: auto;
+  background: #e3eeff;
+  text-align: left;
+}
+
+tbody
+{
+	display: block;
+  margin: auto;
+	width: 1050px;
+	height: 800px;
+
+	overflow: auto;
+}
+
+th,td
+{
+	padding: .5em 1em;
+	text-align: left;
+	vertical-align: top;
+  width: 150px;
+	border-left: 1px solid #fff;
 }

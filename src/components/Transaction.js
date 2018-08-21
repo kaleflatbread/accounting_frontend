@@ -14,7 +14,7 @@ const Transaction = (transaction) => {
 
 
   return (
-    <tr>
+    <tr className="tableRow">
       <td className="rows">{formatted}</td>
       <td className="rows">{transaction.transaction.child_type}</td>
       <td className="rows">{transaction.transaction.memo}</td>

@@ -20,7 +20,7 @@ class NavbarFeatures extends React.Component {
     return (
         <Navbar className="navbar" dark expand="md" scrolling>
           <NavbarBrand href="/">
-            <strong>Quickbooks 2.0</strong>
+            <strong>ABY</strong>
           </NavbarBrand>
             { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
           <Collapse isOpen = { this.state.collapse } navbar>
