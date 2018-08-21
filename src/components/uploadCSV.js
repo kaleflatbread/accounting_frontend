@@ -5,6 +5,7 @@ import {CSVLink} from 'react-csv';
 import { connect } from 'react-redux';
 
 
+
 let headers = [
   {label: 'Date', key: 'date'},
   {label: 'Account', key: 'account'},
@@ -57,7 +58,13 @@ class UploadCSV extends Component {
         body: JSON.stringify({type: "Inventory", account_id: 7, child_type: upload[0]["Type"], user_id: 1, memo: upload[0]["Memo"], date: upload[0]["Date"], quantity_change: upload[0]["Quantity Change"], amount: upload[0]["Amount"], cost_per_unit: upload[0]["Cost Per Unit"], sku: upload[0]["SKU"],})
       })
       .then(res => res.json())
-      .then(console.log)
+      .then(json => {
+        if(json.id){
+
+        }else{
+          throw "sorry, didn't work"
+        }
+      })
     }
 
   reader.readAsText(files[0]);

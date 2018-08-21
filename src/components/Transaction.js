@@ -5,6 +5,14 @@ const Transaction = (transaction) => {
   let unformatted = transaction.transaction.date
   let formatted = moment(unformatted).format('l')
 
+  function removeTransaction (event) {
+    fetch(`http://localhost:3001/api/v1/transactions/${event.target.id}`, {
+      method: "DELETE"
+    })
+    this.props.removeTransaction(parseInt(event.target.id))
+  }
+
+
   return (
     <tr>
       <td className="rows">{formatted}</td>
@@ -14,8 +22,6 @@ const Transaction = (transaction) => {
       <td className="rows">{transaction.transaction.quantity_change}</td>
       <td className="rows">{transaction.transaction.cost_per_unit}</td>
       <td className="rows">{transaction.transaction.amount}</td>
-      <td className="rows"><button>Edit</button></td>
-      <td className="rows"><button>Delete</button></td>
 
     </tr>
   )

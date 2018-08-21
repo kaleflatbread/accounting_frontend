@@ -41,12 +41,6 @@ class Login extends Component {
 
       }
     })
-      // Adapter.postLoginUser(this.state.email, this.state.password)
-      // .then(json => {
-      //   localStorage.setItem('token', json.token);
-      //   this.props.setUser(json.id, json.email);
-      //   this.props.history.push('/recipes');
-      // })
   }
 
   render() {

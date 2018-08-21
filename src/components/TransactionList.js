@@ -66,8 +66,6 @@ class TransactionList extends React.Component {
               <th>Quantity Change</th>
               <th>Cost Per Unit</th>
               <th>$ Amount</th>
-              <th></th>
-              <th></th>
             </tr>
             {this.props.allTransactions.map((transaction) => {
               return(

@@ -44,7 +44,7 @@ class App extends Component {
 
         <Route exact path="/" render={() => <Home/>}/>
         <Switch>
-          <Route path="/inventory/new" render={() => <UploadCSV/>}/>
+          <Route path="/inventory/new" render={(routerProps) => <UploadCSV {...routerProps} />}/>
           <Route path="/expense/new" render={() => <JournalEntryForm currentUser={this.state.userId}/>}/>
           <Route path="/login" render={(routerProps) => <Login {...routerProps} setUser={this.setUser}/>}/>
           <Route path="/user/new" render={(routerProps) => <RegistrationForm {...routerProps}/>}/>

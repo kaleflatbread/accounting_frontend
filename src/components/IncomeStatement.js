@@ -67,7 +67,7 @@ class IncomeStatement extends React.Component {
     // debugger
     return (
       <div>
-        <h1> INVENTORY REGISTER </h1>
+        <h1> INCOME STATEMENT </h1>
       Start Date<DatePicker
         className="dateForm"
         selected={this.state.startDate}
