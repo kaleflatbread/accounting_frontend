@@ -73,7 +73,7 @@ tbody
 	display: block;
   margin: auto;
 	width: 1050px;
-	height: 800px;
+	height: 740px;
 
 	overflow: auto;
 }
@@ -85,4 +85,9 @@ th,td
 	vertical-align: top;
   width: 150px;
 	border-left: 1px solid #fff;
+}
+
+.inlineContainer {
+  display: flex;
+  margin-left: 36%;
 }

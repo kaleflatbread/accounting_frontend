@@ -60,6 +60,7 @@ class ExpenseSummary extends Component {
     return (
       <div>
         <h1> EXPENSE SUMMARY </h1>
+        <div className="inlineContainer">
       Start Date<DatePicker
         className="dateForm"
         selected={this.state.startDate}
@@ -72,6 +73,7 @@ class ExpenseSummary extends Component {
         onChange={this.handleEndChange}
         dateFormat="l"
         />
+    </div>
         <table className="ui celled striped padded table">
           <thead>
             <tr className="tableHead">

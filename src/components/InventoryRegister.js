@@ -81,6 +81,7 @@ class InventoryRegister extends React.Component {
     return (
       <div>
         <h1> INVENTORY REGISTER </h1>
+        <div className="inlineContainer">
       Start Date<DatePicker
         className="dateForm"
         selected={this.state.startDate}
@@ -93,6 +94,7 @@ class InventoryRegister extends React.Component {
         onChange={this.handleEndChange}
         dateFormat="l"
         />
+    </div>
       {this.downloadData}
         <table className="ui celled striped padded table">
           <thead>
