@@ -55,7 +55,9 @@ class TransactionList extends React.Component {
     // debugger
     return (
       <div>
-        <h1 className="statementTitle"> ALL TRANSACTIONS </h1>
+      <h1 className="statementTitle"> All Transactions </h1>
+      <div className="transactionContainer">
+        <br/>
         <table className="table">
           <thead>
             <tr className="tableHead">
@@ -76,6 +78,7 @@ class TransactionList extends React.Component {
             })}
           </tbody>
         </table>
+      </div>
       </div>
     )
   };

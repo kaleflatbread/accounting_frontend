@@ -3,7 +3,7 @@ import ReactFileReader from 'react-file-reader';
 import Button from '@material-ui/core/Button';
 import {CSVLink} from 'react-csv';
 import { connect } from 'react-redux';
-
+import { Icon } from "@blueprintjs/core";
 
 
 let headers = [
@@ -76,13 +76,13 @@ class UploadCSV extends Component {
       <div>
         <br/>
         <CSVLink data={data} headers={headers} filename={"inventory_upload_template.csv"}>
-          <Button>CSV Upload Template</Button>
+          <Button> <Icon icon="download" /> CSV Template</Button>
         </CSVLink>
         <br/>
         <br/>
         <br/>
       <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>
-          <Button>Browse Files</Button>
+          <Button><Icon icon="import" />Import </Button>
       </ReactFileReader>
       </div>
     );

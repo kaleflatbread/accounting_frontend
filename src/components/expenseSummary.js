@@ -59,21 +59,24 @@ class ExpenseSummary extends Component {
     // debugger
     return (
       <div>
-        <h1> EXPENSE SUMMARY </h1>
+        <h1> Expense Summary </h1>
+        <br/>
         <div className="inlineContainer">
-      Start Date<DatePicker
+      <p>Start Date</p><DatePicker
         className="dateForm"
         selected={this.state.startDate}
         onChange={this.handleStartChange}
         dateFormat="l"
         />
-      End Date<DatePicker
+      <p>End Date</p><DatePicker
         className="dateForm"
         selected={this.state.endDate}
         onChange={this.handleEndChange}
         dateFormat="l"
         />
     </div>
+    <br/>
+    <div className="transactionContainer">
         <table className="ui celled striped padded table">
           <thead>
             <tr className="tableHead">
@@ -95,6 +98,7 @@ class ExpenseSummary extends Component {
           </tbody>
         </table>
       </div>
+    </div>
     )
   };
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink} from 'mdbreact';
 import { connect } from 'react-redux';
+import { Icon } from "@blueprintjs/core";
 
 
 class NavbarFeatures extends React.Component {
@@ -21,7 +22,7 @@ class NavbarFeatures extends React.Component {
   render() { if (this.props.userId) {
     return (
         <Navbar className="navbar" dark expand="md" scrolling>
-          <NavbarBrand href="/">
+          <NavbarBrand >
             <strong>ABY</strong>
           </NavbarBrand>
             { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
@@ -31,7 +32,7 @@ class NavbarFeatures extends React.Component {
                 <NavLink to="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/inventory/new">Upload CSV</NavLink>
+                <NavLink to="/inventory/new">Inventory Upload</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to="/expense/new">Create Journal Entry</NavLink>
@@ -39,7 +40,7 @@ class NavbarFeatures extends React.Component {
             </NavbarNav>
             <NavbarNav right>
               <NavItem>
-                  <NavLink onClick={this.logout} to="/login">Logout</NavLink>
+                  <NavLink onClick={this.logout} to="/login"><Icon icon="log-out" /></NavLink>
               </NavItem>
             </NavbarNav>
           </Collapse>
@@ -47,7 +48,7 @@ class NavbarFeatures extends React.Component {
     )} else {
       return (
         <Navbar className="navbar" dark expand="md" scrolling>
-          <NavbarBrand href="/">
+          <NavbarBrand >
             <strong>ABY</strong>
           </NavbarBrand>
             { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
@@ -57,10 +58,10 @@ class NavbarFeatures extends React.Component {
                 <NavLink to="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/inventory/new">Upload CSV</NavLink>
+                <NavLink to="/inventory/new">Inventory Upload</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/expense/new">Submit Expenses</NavLink>
+                <NavLink to="/expense/new">Create Journal Entry</NavLink>
               </NavItem>
             </NavbarNav>
             <NavbarNav right>

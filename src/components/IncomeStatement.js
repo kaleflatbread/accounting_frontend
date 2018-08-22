@@ -67,19 +67,22 @@ class IncomeStatement extends React.Component {
     // debugger
     return (
       <div>
-        <h1> INCOME STATEMENT </h1>
-      Start Date<DatePicker
+        <h1> Income Statement </h1>
+        <br/>
+        <div className="inlineContainer">
+      <p>Start Date</p><DatePicker
         className="dateForm"
         selected={this.state.startDate}
         onChange={this.handleStartChange}
         dateFormat="l"
         />
-        End Date<DatePicker
+      <p>End Date</p><DatePicker
           className="dateForm"
           selected={this.state.endDate}
           onChange={this.handleEndChange}
           dateFormat="l"
           />
+      </div>
         <table className="ui celled striped padded table">
           <thead>
             <tr className="tableHead">
