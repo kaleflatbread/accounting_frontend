@@ -34,7 +34,7 @@ class NavbarFeatures extends React.Component {
                 <NavLink to="/inventory/new">Upload CSV</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/expense/new">Submit Expenses</NavLink>
+                <NavLink to="/expense/new">Create Journal Entry</NavLink>
               </NavItem>
             </NavbarNav>
             <NavbarNav right>

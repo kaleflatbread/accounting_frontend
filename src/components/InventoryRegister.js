@@ -20,14 +20,7 @@ class InventoryRegister extends React.Component {
       this.handleEndChange = this.handleEndChange.bind(this);
     }
 
-    // getStartFilteredTransactions = () => {
-    //   let filteredTransactions = this.props.inventoryTransactions.filter((transaction) => {
-    //     return moment(transaction.date) > moment(this.state.startDate._d)
-    //   })
-    //   this.setState({
-    //     filteredTransactions: filteredTransactions,
-    //   })
-    // }
+
 
 
     getEndFilteredTransactions = () => {
@@ -43,7 +36,6 @@ class InventoryRegister extends React.Component {
       this.setState({
         startDate: date,
       }, () => {console.log(this.state)});
-      // this.getStartFilteredTransactions()
     }
 
     handleEndChange(date) {

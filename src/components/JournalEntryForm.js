@@ -81,6 +81,9 @@ class JournalEntryForm extends Component {
   render() {
     return (
       <div className="journalEntry">
+        <br/>
+        <br/>
+        <br/>
 
         <form onSubmit={this.handleSubmit} >
           <label htmlFor="date"></label>

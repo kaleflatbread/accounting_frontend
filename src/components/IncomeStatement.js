@@ -81,12 +81,13 @@ class IncomeStatement extends React.Component {
           dateFormat="l"
           />
         <table className="ui celled striped padded table">
-          <tbody>
+          <thead>
             <tr className="tableHead">
               <th>GL</th>
               <th>Amount</th>
-
             </tr>
+          </thead>
+            <tbody>
             {this.props.allTransactions.map((transaction) => {
               return(
                 <IncomeStatementLine key={transaction.id} transaction={transaction}/>
