@@ -58,7 +58,7 @@ class TransactionList extends React.Component {
       <h1 className="statementTitle"> All Transactions </h1>
       <div className="transactionContainer">
         <br/>
-        <table className="table">
+        <table className="table" >
           <thead>
             <tr className="tableHead">
               <th>Date</th>

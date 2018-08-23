@@ -32,6 +32,9 @@ class RegistrationForm extends Component {
   render() {
     return (
       <div className="login">
+        <br/>
+        <br/>
+        <br/>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="email"></label>
             <input

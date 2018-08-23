@@ -1,4 +1,5 @@
 
+
 .App {
   text-align: center;
 }
@@ -11,7 +12,7 @@
 .App-header {
   background-color: #222;
   height: 150px;
-  padding: 20px;
+  /* padding: 20px; */
   color: white;
 }
 
@@ -34,10 +35,12 @@
 
 
 
-.rows {
+td {
   font-size: 12px;
   height: 12px;
+
 }
+
 
 .navbar {
   background: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
@@ -50,8 +53,10 @@
 
 .transactionContainer {
   width: 800px;
-  margin-left: 20%;
+  margin-left: 23%;
 }
+
+
 
 table
 {
@@ -59,9 +64,7 @@ table
 	border-collapse: collapse;
   border-style: solid;
   border-width: 1px;
-  box-shadow: 0 4px 8px 0 #231557, 0 6px 20px 0 #FFF800;
-  /* margin-left: 10%;
-  margin-right: 10%; */
+  box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
   text-align: center;
 }
 
@@ -89,11 +92,12 @@ tbody
 
 th,td
 {
-	padding: .5em 1em;
 	text-align: left;
 	vertical-align: top;
   width: 150px;
 	border-left: 1px solid #fff;
+  padding: 0, !important;
+  margin: 0, !important;
 }
 
 .inlineContainer {
@@ -112,9 +116,7 @@ h1 {
 tr:nth-child(even) {
     background-color: #FFFDE7;
 }
-tr {
 
-}
 p {
   font-size: 16px;
   background: -webkit-linear-gradient(-225deg, #FFF800 0%, #FF1361 29%, #44107A 67%, #231557 100%);
@@ -124,4 +126,5 @@ p {
 
 strong {
   color: white;
+  font-family: 'Pacifico', cursive !important;
 }
